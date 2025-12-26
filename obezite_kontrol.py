@@ -36,24 +36,32 @@ def calculate():
         label_3.config(text='--> ', pady=20)
 
         if  a < 18.5:
-            label_3.config(text=f" {a:.2f} you are underweight")
+            label_3.config(text=f" {a:.4f} you are underweight",foreground='darkblue')
         elif 18.5 < a < 24.9:
-            label_3.config(text=f" {a:.2f} you are normal")
+            label_3.config(text=f" {a:.4f} you are normal",foreground='darkblue')
         elif 25 < a < 29.9:
-            label_3.config(text=f" {a:.2f} you are overweight")
+            label_3.config(text=f" {a:.4f} you are overweight",foreground='darkblue')
         elif 30 < a < 34.9:
-            label_3.config(text=f" {a:.2f} you are obese")
+            label_3.config(text=f" {a:.4f} you are obese",foreground='darkblue')
         else:
-            label_3.config(text=f" {a:.2f} you are extremly obese")
+            label_3.config(text=f" {a:.4f} you are extremly obese",foreground='darkblue')
 
     except :
-        label_3.config(text='enter a valid number')
+        if entry1.get() + entry2.get() == '':
+            label_3.config(text="Please enter a value",foreground='red')
+        elif entry1.get() == '':
+            label_3.config(text='enter a weight number',foreground='red')
+        elif entry2.get() == '':
+            label_3.config(text='enter a height number',foreground='red')
+        else:
+            label_3.config(text='enter a valid number',foreground='red')
 
 
 
 my_button = tkinter.Button(text="Calculate", command=calculate )
 my_button.pack()
-label_3.config(text='enter a valid number')
+
+#label_3.config(text='enter a valid number')
 
 
 
